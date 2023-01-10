@@ -1,0 +1,33 @@
+title: This is a network IP address CIDR tool
+description: This is a network IP address CIDR tool
+import_script: ""
+link: ""
+function: |
+  function calculateCIDR(cidr) {
+    var cidrParts = cidr.split("/");
+    var ip = cidrParts[0];
+    var mask = parseInt(cidrParts[1]);
+    var maskBin = "1".repeat(mask) + "0".repeat(32 - mask);
+    var maskArr = maskBin.match(/.{1,8}/g).map(function(n) {
+        return parseInt(n, 2);
+    });
+    var ipArr = ip.split(".").map(function(n) {
+        return parseInt(n);
+    });
+    var network = ipArr.map(function(n, i) {
+        return n & maskArr[i];
+    });
+    var broadcast = ipArr.map(function(n, i) {
+        return n | ~maskArr[i] & 255;
+    });
+    var ipsInRange = Math.pow(2, 32 - mask) - 2;
+    var output = {
+        "CIDR IP Range": network.join(".") + " - " + broadcast.join("."),
+        "IPs in Range": ipsInRange,
+        "Subnet Mask": maskArr.join(".")
+    };
+    return `CIDR IP Range: ${output["CIDR IP Range"]}
+  IPs in Range: ${output["IPs in Range"]}
+  Subnet Mask: ${output["Subnet Mask"]}
+    `
+  }

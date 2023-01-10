@@ -1,0 +1,18 @@
+title: This is a md5 hash tool
+description: This is a md5 hash tool
+import_script:
+  - https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.min.js
+link:
+  - name: md5
+    url: 'md5.html'
+  - name: sha1
+    url: 'sha1.html'
+  - name: sha256
+    url: 'sha256.html'
+  - name: sha512
+    url: 'sha512.html'
+function: |
+  function md5(str) {
+    return CryptoJS.MD5(str).toString();
+  }

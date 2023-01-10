@@ -1,0 +1,12 @@
+title: This is a base64 decode tool
+description: This is a base64 decode tool
+import_script: ""
+link:
+  - name: base64_encode
+    url: encode.html
+  - name: base64_decode
+    url: decode.html
+function: |
+  function base64_decode(str) {
+    return decodeURIComponent(escape(atob(str)));
+  }
