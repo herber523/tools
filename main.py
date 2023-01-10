@@ -16,7 +16,7 @@ for path in all_path:
     all_link.append(
         {
             'name': name,
-            'url': f'/{category}/{name}.html'
+            'url': f'/tools/{category}/{name}.html'
         }
     )
 
