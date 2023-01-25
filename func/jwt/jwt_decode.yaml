@@ -1,0 +1,22 @@
+title: This is a JWT decode tool
+description: This is a JWT decode tool
+import_script: ""
+link: ""
+default_value: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUZXN0IiwiaWF0IjoxNjc0NjczMzIxLCJleHAiOjE3MDYyMDkzMjEsImF1ZCI6IlRlc3QiLCJzdWIiOiJUZXN0In0.ZrxW8K1NV3lVD2oI9hyjyrhNTtky2tUUZH65tlJ4bJY"
+function: |
+  function decodeJWT(jwt) {
+    // Split the JWT into 3 parts: header, payload, signature
+    const jwtParts = jwt.split(".");
+
+    // Base64 decode each part
+    const header = JSON.parse(atob(jwtParts[0]));
+    const payload = JSON.parse(atob(jwtParts[1]));
+
+    // Return the header and payload as an object
+    return `Header: 
+  ${JSON.stringify(header, null, 2)}
+  =========================================
+  Payload: 
+  ${JSON.stringify(payload, null, 2)}
+    `
+  }
