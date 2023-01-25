@@ -1,0 +1,9 @@
+title: This is a string length tool
+description: This is a string length tool
+import_script: ""
+link: ""
+default_value: "Hello World"
+function: |
+  function strLength(str) {
+    return str.length;
+  }

@@ -1,5 +1,6 @@
 title: This is a base64 encode tool
 description: This is a base64 encode tool
+default_value: "Hello World"
 import_script: ""
 link:
   - name: base64_encode

@@ -22,7 +22,7 @@
 <h1>{{ description }}</h1>
 
 <br>
-輸入: <textarea id="input" cols="80" rows="10"></textarea>
+輸入: <textarea id="input" cols="80" rows="10">{{ default_value }}</textarea>
 <br>
 
 輸出: <textarea id="output" cols="80" rows="20"></textarea>

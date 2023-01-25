@@ -2,6 +2,7 @@ title: This is a network IP address CIDR tool
 description: This is a network IP address CIDR tool
 import_script: ""
 link: ""
+default_value: "192.168.1.1/24"
 function: |
   function calculateCIDR(cidr) {
     var cidrParts = cidr.split("/");
@@ -20,14 +21,17 @@ function: |
     var broadcast = ipArr.map(function(n, i) {
         return n | ~maskArr[i] & 255;
     });
-    var ipsInRange = Math.pow(2, 32 - mask) - 2;
+    var ipsInRange = Math.pow(2, 32 - mask);
+    var availableIps = ipsInRange - 2;
     var output = {
         "CIDR IP Range": network.join(".") + " - " + broadcast.join("."),
         "IPs in Range": ipsInRange,
-        "Subnet Mask": maskArr.join(".")
+        "Subnet Mask": maskArr.join("."),
+        "Available IPs": availableIps
     };
     return `CIDR IP Range: ${output["CIDR IP Range"]}
   IPs in Range: ${output["IPs in Range"]}
+  Available IPs: ${output["Available IPs"]}
   Subnet Mask: ${output["Subnet Mask"]}
     `
   }

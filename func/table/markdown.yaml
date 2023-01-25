@@ -1,0 +1,33 @@
+title: This is a markdown table generator
+description: This is a markdown table generator
+import_script: ""
+link: ""
+default_value: "3*3"
+function: |
+  function generateMarkdownTable(str) {
+    columns = str.split("*")[0];
+    rows = str.split("*")[1];
+    let table = "|";
+    
+    // create table headers
+    for (let i = 0; i < columns; i++) {
+      table += "   |";
+    }
+    
+    table += "\n|";
+    
+    // create table divider
+    for (let i = 0; i < columns; i++) {
+      table += "---|";
+    }
+    
+    // create table rows
+    for (let i = 0; i < rows; i++) {
+      table += "\n|";
+      for (let j = 0; j < columns; j++) {
+        table += "   |";
+      }
+    }
+    
+    return table;
+  }

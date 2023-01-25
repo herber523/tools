@@ -1,5 +1,6 @@
 title: This is a base64 decode tool
 description: This is a base64 decode tool
+default_value: "SGVsbG8gV29ybGQ="
 import_script: ""
 link:
   - name: base64_encode
