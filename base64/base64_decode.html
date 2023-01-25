@@ -1,66 +1,119 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="utf-8">
     
     <title>This is a base64 decode tool</title>
-</head>
+    <title>Tools</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        .first-level-menu a {
+            font-size: 18px;
+        }
 
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-        var btn = document.getElementById("btn");
-        btn.addEventListener("click", function() {
-            var input = document.getElementById("input").value;
-            r = function base64_decode(str) {
+        .second-level-menu a {
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            var btn = document.getElementById("btn");
+            btn.addEventListener("click", function () {
+                var input = document.getElementById("input").value;
+                r = function base64_decode(str) {
   return decodeURIComponent(escape(atob(str)));
 }
-            (input);
+                (input);
             document.getElementById("output").value = r;
         });
-    });
-  
-</script>
+        });
+    </script>
+</head>
 
-<h1>This is a base64 decode tool</h1>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Tools</a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <ul class="nav flex-column first-level-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">相關工具</a>
+                        <ul class="nav flex-column second-level-menu">
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=base64_encode.html>base64_encode</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=base64_decode.html>base64_decode</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav flex-column first-level-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">所有工具</a>
+                        <ul class="nav flex-column second-level-menu">
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=../base64/base64_decode.html>base64_decode</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=../base64/base64_encode.html>base64_encode</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=../network/cidr.html>cidr</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=../string/length.html>length</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=../hash/sha256.html>sha256</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=../hash/md5.html>md5</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=../hash/sha1.html>sha1</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=../hash/sha512.html>sha512</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href=../table/markdown.html>markdown</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-10">
+                <h2> This is a base64 decode tool </h2>
+                <div class="form-group">
+                    <label for="input1">Input</label>
+                    <textarea type="text" id="input" class="form-control" rows="10">SGVsbG8gV29ybGQ=</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="input2">Output</label>
+                    <textarea type="text" id="output" class="form-control" rows="10"></textarea>
+                </div>
+                <button type="submit" id="btn" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
 
-<br>
-輸入: <textarea id="input" cols="80" rows="10">SGVsbG8gV29ybGQ=</textarea>
-<br>
-
-輸出: <textarea id="output" cols="80" rows="20"></textarea>
-<br>
-
-<button id="btn">計算</button>
-
-
-<h2>相關工具</h2>
-
-
-<ul>
-    
-      <a href=encode.html>base64_encode</a>
-    
-      <a href=decode.html>base64_decode</a>
-    
-</ul>
-
-<h2> 所有工具 </h2>
-<ul>
-    
-      <a href=/tools/base64/base64_decode.html>base64_decode</a>
-    
-      <a href=/tools/base64/base64_encode.html>base64_encode</a>
-    
-      <a href=/tools/network/cidr.html>cidr</a>
-    
-      <a href=/tools/string/length.html>length</a>
-    
-      <a href=/tools/hash/sha256.html>sha256</a>
-    
-      <a href=/tools/hash/md5.html>md5</a>
-    
-      <a href=/tools/hash/sha1.html>sha1</a>
-    
-      <a href=/tools/hash/sha512.html>sha512</a>
-    
-      <a href=/tools/table/markdown.html>markdown</a>
-    
-</ul>
+</html>
