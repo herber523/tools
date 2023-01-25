@@ -1,0 +1,91 @@
+<head>
+    <meta charset="utf-8">
+    
+    <title>This is a network IP address CIDR tool</title>
+</head>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", function() {
+            var input = document.getElementById("input").value;
+            r = function calculateCIDR(cidr) {
+  var cidrParts = cidr.split("/");
+  var ip = cidrParts[0];
+  var mask = parseInt(cidrParts[1]);
+  var maskBin = "1".repeat(mask) + "0".repeat(32 - mask);
+  var maskArr = maskBin.match(/.{1,8}/g).map(function(n) {
+      return parseInt(n, 2);
+  });
+  var ipArr = ip.split(".").map(function(n) {
+      return parseInt(n);
+  });
+  var network = ipArr.map(function(n, i) {
+      return n & maskArr[i];
+  });
+  var broadcast = ipArr.map(function(n, i) {
+      return n | ~maskArr[i] & 255;
+  });
+  var ipsInRange = Math.pow(2, 32 - mask);
+  var availableIps = ipsInRange - 2;
+  var output = {
+      "CIDR IP Range": network.join(".") + " - " + broadcast.join("."),
+      "IPs in Range": ipsInRange,
+      "Subnet Mask": maskArr.join("."),
+      "Available IPs": availableIps
+  };
+  return `CIDR IP Range: ${output["CIDR IP Range"]}
+IPs in Range: ${output["IPs in Range"]}
+Available IPs: ${output["Available IPs"]}
+Subnet Mask: ${output["Subnet Mask"]}
+  `
+}
+
+            (input);
+            document.getElementById("output").value = r;
+        });
+    });
+  
+</script>
+
+<h1>This is a network IP address CIDR tool</h1>
+
+<br>
+輸入: <textarea id="input" cols="80" rows="10">192.168.1.1/24</textarea>
+<br>
+
+輸出: <textarea id="output" cols="80" rows="20"></textarea>
+<br>
+
+<button id="btn">計算</button>
+
+
+<h2>相關工具</h2>
+
+
+<ul>
+    
+</ul>
+
+<h2> 所有工具 </h2>
+<ul>
+    
+      <a href=/tools/base64/base64_decode.html>base64_decode</a>
+    
+      <a href=/tools/base64/base64_encode.html>base64_encode</a>
+    
+      <a href=/tools/network/cidr.html>cidr</a>
+    
+      <a href=/tools/string/length.html>length</a>
+    
+      <a href=/tools/hash/sha256.html>sha256</a>
+    
+      <a href=/tools/hash/md5.html>md5</a>
+    
+      <a href=/tools/hash/sha1.html>sha1</a>
+    
+      <a href=/tools/hash/sha512.html>sha512</a>
+    
+      <a href=/tools/table/markdown.html>markdown</a>
+    
+</ul>

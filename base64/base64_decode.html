@@ -1,0 +1,66 @@
+<head>
+    <meta charset="utf-8">
+    
+    <title>This is a base64 decode tool</title>
+</head>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", function() {
+            var input = document.getElementById("input").value;
+            r = function base64_decode(str) {
+  return decodeURIComponent(escape(atob(str)));
+}
+            (input);
+            document.getElementById("output").value = r;
+        });
+    });
+  
+</script>
+
+<h1>This is a base64 decode tool</h1>
+
+<br>
+輸入: <textarea id="input" cols="80" rows="10">SGVsbG8gV29ybGQ=</textarea>
+<br>
+
+輸出: <textarea id="output" cols="80" rows="20"></textarea>
+<br>
+
+<button id="btn">計算</button>
+
+
+<h2>相關工具</h2>
+
+
+<ul>
+    
+      <a href=encode.html>base64_encode</a>
+    
+      <a href=decode.html>base64_decode</a>
+    
+</ul>
+
+<h2> 所有工具 </h2>
+<ul>
+    
+      <a href=/tools/base64/base64_decode.html>base64_decode</a>
+    
+      <a href=/tools/base64/base64_encode.html>base64_encode</a>
+    
+      <a href=/tools/network/cidr.html>cidr</a>
+    
+      <a href=/tools/string/length.html>length</a>
+    
+      <a href=/tools/hash/sha256.html>sha256</a>
+    
+      <a href=/tools/hash/md5.html>md5</a>
+    
+      <a href=/tools/hash/sha1.html>sha1</a>
+    
+      <a href=/tools/hash/sha512.html>sha512</a>
+    
+      <a href=/tools/table/markdown.html>markdown</a>
+    
+</ul>

@@ -1,0 +1,74 @@
+<head>
+    <meta charset="utf-8">
+    
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js></script>
+    
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.min.js></script>
+    
+    <title>This is a md5 hash tool</title>
+</head>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", function() {
+            var input = document.getElementById("input").value;
+            r = function md5(str) {
+  return CryptoJS.MD5(str).toString();
+}
+            (input);
+            document.getElementById("output").value = r;
+        });
+    });
+  
+</script>
+
+<h1>This is a md5 hash tool</h1>
+
+<br>
+輸入: <textarea id="input" cols="80" rows="10">Hello World</textarea>
+<br>
+
+輸出: <textarea id="output" cols="80" rows="20"></textarea>
+<br>
+
+<button id="btn">計算</button>
+
+
+<h2>相關工具</h2>
+
+
+<ul>
+    
+      <a href=md5.html>md5</a>
+    
+      <a href=sha1.html>sha1</a>
+    
+      <a href=sha256.html>sha256</a>
+    
+      <a href=sha512.html>sha512</a>
+    
+</ul>
+
+<h2> 所有工具 </h2>
+<ul>
+    
+      <a href=/tools/base64/base64_decode.html>base64_decode</a>
+    
+      <a href=/tools/base64/base64_encode.html>base64_encode</a>
+    
+      <a href=/tools/network/cidr.html>cidr</a>
+    
+      <a href=/tools/string/length.html>length</a>
+    
+      <a href=/tools/hash/sha256.html>sha256</a>
+    
+      <a href=/tools/hash/md5.html>md5</a>
+    
+      <a href=/tools/hash/sha1.html>sha1</a>
+    
+      <a href=/tools/hash/sha512.html>sha512</a>
+    
+      <a href=/tools/table/markdown.html>markdown</a>
+    
+</ul>
