@@ -4,9 +4,9 @@ default_value: "Hello World"
 import_script: ""
 link:
   - name: base64_encode
-    url: encode.html
+    url: base64_encode.html
   - name: base64_decode
-    url: decode.html
+    url: base64_decode.html
 function: |
   function base64_encode(str) {
     return btoa(unescape(encodeURIComponent(str)));

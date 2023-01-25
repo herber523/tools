@@ -4,9 +4,9 @@ default_value: "SGVsbG8gV29ybGQ="
 import_script: ""
 link:
   - name: base64_encode
-    url: encode.html
+    url: base64_encode.html
   - name: base64_decode
-    url: decode.html
+    url: base64_decode.html
 function: |
   function base64_decode(str) {
     return decodeURIComponent(escape(atob(str)));

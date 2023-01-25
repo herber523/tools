@@ -1,48 +1,82 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="utf-8">
     {% for item in import_script %}
     <script src={{ item }}></script>
     {% endfor %}
     <title>{{ title }}</title>
-</head>
+    <title>Tools</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        .first-level-menu a {
+            font-size: 18px;
+        }
 
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-        var btn = document.getElementById("btn");
-        btn.addEventListener("click", function() {
-            var input = document.getElementById("input").value;
-            r = {{ function }}
-            (input);
+        .second-level-menu a {
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            var btn = document.getElementById("btn");
+            btn.addEventListener("click", function () {
+                var input = document.getElementById("input").value;
+                r = {{ function }}
+                (input);
             document.getElementById("output").value = r;
         });
-    });
-  
-</script>
+        });
+    </script>
+</head>
 
-<h1>{{ description }}</h1>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Tools</a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <ul class="nav flex-column first-level-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">相關工具</a>
+                        <ul class="nav flex-column second-level-menu">
+                            {% for item in link %}
+                            <li class="nav-item">
+                                <a class="nav-link" href={{ item.url }}>{{ item.name }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav flex-column first-level-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">所有工具</a>
+                        <ul class="nav flex-column second-level-menu">
+                            {% for item in all_link %}
+                            <li class="nav-item">
+                                <a class="nav-link" href={{ item.url }}>{{ item.name }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-10">
+                <h2> {{ description }} </h2>
+                <div class="form-group">
+                    <label for="input1">Input</label>
+                    <textarea type="text" id="input" class="form-control" rows="10">{{ default_value }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="input2">Output</label>
+                    <textarea type="text" id="output" class="form-control" rows="10"></textarea>
+                </div>
+                <button type="submit" id="btn" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
 
-<br>
-輸入: <textarea id="input" cols="80" rows="10">{{ default_value }}</textarea>
-<br>
-
-輸出: <textarea id="output" cols="80" rows="20"></textarea>
-<br>
-
-<button id="btn">計算</button>
-
-
-<h2>相關工具</h2>
-
-
-<ul>
-    {% for item in link %}
-      <a href={{ item.url }}>{{ item.name }}</a>
-    {% endfor %}
-</ul>
-
-<h2> 所有工具 </h2>
-<ul>
-    {% for item in all_link %}
-      <a href={{ item.url }}>{{ item.name }}</a>
-    {% endfor %}
-</ul>
+</html>
