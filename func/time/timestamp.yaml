@@ -1,0 +1,12 @@
+title: Timestamp to Date
+description: This is a timestamp to date tool
+import_script: ""
+link: ""
+default_value: "1359855446"
+function: |
+  function timestampToDate(str) {
+    var date = new Date(str * 1000);
+    return `${date}
+  ${date.toUTCString()}
+    `
+  }
