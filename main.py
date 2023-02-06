@@ -26,9 +26,14 @@ for path in all_path:
     with open(path, 'r') as f:
         var = yaml.safe_load(f)
     var['all_link'] = all_link
+    template = env.get_template('base.html.tmp')
+    if var.get('template'):
+        template = env.get_template(f"{var['template']}.html.tmp")
     output = template.render(var)
     output_path = f'./html/{category}'
     if not os.path.exists(output_path):
         os.makedirs(output_path)
     with open(f'{output_path}/{name}.html', 'w') as f:
         f.write(output)
+
+os.system('cp -r ./library ./html/')

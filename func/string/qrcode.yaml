@@ -1,0 +1,16 @@
+title: String to QR Code
+description: This is a string to QR Code tool
+template: input_to_image
+import_script:
+- ../library/qrcode.min.js
+link: ""
+default_value: "Hello World"
+function: |
+  function strToQRCode(str) {
+    document.getElementById("output").innerHTML = "";
+    var qrcode = new QRCode(document.getElementById("output"), {
+      width : 400,
+      height : 400
+    });
+    qrcode.makeCode(str);
+  }

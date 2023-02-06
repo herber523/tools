@@ -25,7 +25,6 @@
                 var input = document.getElementById("input").value;
                 r = {{ function }}
                 (input);
-            document.getElementById("output").value = r;
         });
         });
     </script>
@@ -78,9 +77,7 @@
                     <label for="input1">Input</label>
                     <textarea type="text" id="input" class="form-control" rows="10">{{ default_value }}</textarea>
                 </div>
-                <div id="o" class="form-group">
-                    <label for="input2">Output</label>
-                    <textarea type="text" id="output" class="form-control" rows="10"></textarea>
+                <div id="output" class="form-group">     
                 </div>
                 <button type="submit" id="btn" class="btn btn-primary">Submit</button>
             </div>
